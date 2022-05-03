@@ -4,7 +4,7 @@ local user_plugin_opts = astronvim.user_plugin_opts
 local conditional_func = astronvim.conditional_func
 
 local function lsp_highlight_document(client)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
     vim.api.nvim_create_autocmd("CursorHold", {
       group = "lsp_document_highlight",
@@ -27,7 +27,7 @@ astronvim.lsp.on_attach = function(client, bufnr)
     vim.lsp.buf.code_action()
   end, { desc = "LSP code action", buffer = bufnr })
   map("n", "<leader>lf", function()
-    vim.lsp.buf.formatting_sync()
+    vim.lsp.buf.format()
   end, { desc = "Format code", buffer = bufnr })
   map("n", "<leader>lh", function()
     vim.lsp.buf.signature_help()
@@ -102,7 +102,7 @@ function astronvim.lsp.server_settings(server_name)
 end
 
 function astronvim.lsp.disable_formatting(client)
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
 end
 
 return astronvim.lsp
