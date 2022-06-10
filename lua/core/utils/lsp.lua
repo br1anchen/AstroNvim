@@ -104,5 +104,3 @@ end
 function astronvim.lsp.disable_formatting(client)
   client.server_capabilities.documentFormattingProvider = false
 end
-
-return astronvim.lsp
