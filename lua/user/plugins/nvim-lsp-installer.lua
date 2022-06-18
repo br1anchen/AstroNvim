@@ -1,0 +1,20 @@
+return {
+  ensure_installed = {
+    "bashls",
+    "dartls",
+    "html",
+    "jsonls",
+    "lemminx",
+    "prismals",
+    "pyright",
+    "rnix",
+    "rust_analyzer",
+    "sqls",
+    "stylelint_lsp",
+    "sumneko_lua",
+    "taplo",
+    "tsserver",
+    "yamlls",
+    "zk",
+  },
+}
